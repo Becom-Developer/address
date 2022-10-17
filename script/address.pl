@@ -1,4 +1,6 @@
 #!/usr/bin/env perl
+use FindBin;
+use lib ( "$FindBin::RealBin/../lib", "$FindBin::RealBin/../local/lib/perl5" );
 use Mojolicious::Lite -signatures;
 
 get '/' => sub ($c) {
