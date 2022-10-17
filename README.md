@@ -43,5 +43,13 @@ chmod +x cpanm
 dir
 
 ```zsh
+perl -I ./local/lib/perl5 ./local/bin/mojo generate app AddressApi
+mv -n address_api/* .
+rm -r address_api
+```
 
+start
+
+```zsh
+perl -I ./local/lib/perl5 ./local/bin/morbo ./script/address_api
 ```

@@ -4,6 +4,9 @@ use Mojo::Base 'Mojolicious', -signatures;
 # This method will run once at server start
 sub startup ($self) {
 
+  # Add another namespace to load commands from
+  push @{$self->commands->namespaces}, 'AddressApi::Command';
+
   # Load configuration from config file
   my $config = $self->plugin('NotYAMLConfig');
 
