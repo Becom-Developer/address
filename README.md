@@ -26,9 +26,10 @@ Perl
 
 ```zsh
 echo '5.32.1' > .perl-version
-echo "requires 'DBD::SQLite', '==1.54';" >> cpanfile
+echo "requires 'DBD::SQLite', '==1.70';" >> cpanfile
 echo "requires 'Test::Trap';" >> cpanfile
-echo "requires 'Text::CSV', '2.01';" >> cpanfile
+echo "requires 'Text::CSV', '2.02';" >> cpanfile
+echo "requires 'Mojolicious', '9.28';" >> cpanfile
 ```
 
 Module
@@ -39,3 +40,8 @@ chmod +x cpanm
 ./cpanm -l ./local --installdeps .
 ```
 
+dir
+
+```zsh
+
+```
