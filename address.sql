@@ -30,9 +30,7 @@ DROP TABLE IF EXISTS `card`;
 CREATE TABLE `card` (                                   -- カード
     `id`            INTEGER PRIMARY KEY AUTOINCREMENT,  -- ID (例: 5)
     `title`         TEXT,                               -- タイトル (例: '磯野カツオ')
-    `address`       TEXT,                               -- 住所の登録状態 (例: '{}')
-    `tel`           TEXT,                               -- 電話番号の登録状態 (例: '{}')
-    `mail`          TEXT,                               -- メールアドレスの登録状態 (例: '{}')
+    `entry`         TEXT,                               -- 登録状態 (例: '{"tel":[3,8],"address":[4,5],"mail":[6,9]}')
     `deleted`       INTEGER,                            -- 削除フラグ (例: 0: 削除していない, 1: 削除済み)
     `created_ts`    TEXT,                               -- 登録日時 (例: '2022-10-16 15:41:41')
     `modified_ts`   TEXT                                -- 修正日時 (例: '2022-10-16 15:41:41')
@@ -46,9 +44,23 @@ CREATE TABLE `label` (                                  -- ラベル
     `created_ts`    TEXT,                               -- 登録日時 (例: '2022-10-16 15:41:41')
     `modified_ts`   TEXT                                -- 修正日時 (例: '2022-10-16 15:41:41')
 );
-DROP TABLE IF EXISTS `used`;
-CREATE TABLE `used` (                                   -- カードの所有状況
+DROP TABLE IF EXISTS `owner`;
+CREATE TABLE `owner` (                                  -- カードの所有者情報
     `id`            INTEGER PRIMARY KEY AUTOINCREMENT,  -- ID (例: 5)
+    `user_id`       INTEGER,                            -- ユーザーID (例: 5)
+    `group_id`      INTEGER,                            -- グループID (例: 5)
+    `card_id`       INTEGER,                            -- カードID (例: 5)
+    `permission`    TEXT,                               -- カードの取り扱い権限 (例: 'rwrwrw': すべての人が読み書き可能)
+    `deleted`       INTEGER,                            -- 削除フラグ (例: 0: 削除していない, 1: 削除済み)
+    `created_ts`    TEXT,                               -- 登録日時 (例: '2022-10-16 15:41:41')
+    `modified_ts`   TEXT                                -- 修正日時 (例: '2022-10-16 15:41:41')
+);
+DROP TABLE IF EXISTS `group`;
+CREATE TABLE `group` (                                  -- カードのグループ情報
+    `id`            INTEGER PRIMARY KEY AUTOINCREMENT,  -- ID (例: 5)
+    `title`         TEXT,                               -- タイトル (例: '福岡のウイスキーバー')
+    `user_id`       INTEGER,                            -- ユーザーID (例: 5)
+    `permission`    TEXT,                               -- グループの取り扱い権限 (例: 'rwrwrw': すべての人が読み書き可能)
     `deleted`       INTEGER,                            -- 削除フラグ (例: 0: 削除していない, 1: 削除済み)
     `created_ts`    TEXT,                               -- 登録日時 (例: '2022-10-16 15:41:41')
     `modified_ts`   TEXT                                -- 修正日時 (例: '2022-10-16 15:41:41')

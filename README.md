@@ -53,3 +53,7 @@ start
 ```zsh
 perl -I ./local/lib/perl5 ./local/bin/morbo ./script/address_api
 ```
+
+```json
+{"tel":[3,8],"address":[4,5],"mail":[6,9]}
+```
