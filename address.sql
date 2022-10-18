@@ -38,8 +38,7 @@ CREATE TABLE `card` (                                   -- カード
 DROP TABLE IF EXISTS `label`;
 CREATE TABLE `label` (                                  -- ラベル
     `id`            INTEGER PRIMARY KEY AUTOINCREMENT,  -- ID (例: 5)
-    `type`          TEXT,                               -- タイブ (例: '')
-    `name`          TEXT,                               -- 名前 (例: '自宅')
+    `title`         TEXT,                               -- タイトル (例: '自宅')
     `deleted`       INTEGER,                            -- 削除フラグ (例: 0: 削除していない, 1: 削除済み)
     `created_ts`    TEXT,                               -- 登録日時 (例: '2022-10-16 15:41:41')
     `modified_ts`   TEXT                                -- 修正日時 (例: '2022-10-16 15:41:41')
